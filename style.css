@@ -1,0 +1,306 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #9999e0;
+  color: white;
+  font-family: Inter, sans-serif;
+}
+
+button, select {
+  font-family: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* HEADER */
+
+.header {
+  height: 70px;
+  width: 100%;
+  max-width: 720px;
+  border-bottom: 1px solid #444;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+
+.header h1 {
+  letter-spacing: 5px;
+  font-size: 29px;
+  font-weight: 800;
+}
+
+.header-side {
+  width: 120px;
+}
+
+.header-side.right {
+  text-align: right;
+}
+
+.mini-mark {
+  border: 2px solid #888;
+  padding: 5px 9px;
+  border-radius: 5px;
+}
+
+.daily-label {
+  font-size: 9px;
+  color: #999;
+}
+
+/* MAIN CONTENT */
+
+.game-content {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 12px;
+}
+
+.instructions {
+  color: #aaa;
+  font-size: 13px;
+}
+
+/* CATEGORY AND HINT */
+
+.clue-panel {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  background: #222;
+  border: 1px solid #444;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.clue-panel label {
+  display: block;
+  font-size: 11px;
+  color: #e7c64b;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.clue-panel select {
+  width: 100%;
+  padding: 11px;
+  background: #38383a;
+  border: 1px solid #555;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hint {
+  display: flex;
+  gap: 12px;
+  border-top: 1px solid #444;
+  margin-top: 12px;
+  padding-top: 12px;
+}
+
+.hint-icon {
+  font-size: 22px;
+}
+
+.hint strong {
+  color: #e7c64b;
+  font-size: 11px;
+}
+
+.hint p {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #ddd;
+  margin-bottom: 0;
+}
+
+/* GAME GRID */
+
+.board {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 6px;
+  width: 100%;
+  max-width: 330px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+
+.tile {
+  width: 100%;
+  aspect-ratio: 1;
+  border: 2px solid #565758;
+  background: #121213;
+  color: white;
+  border-radius: 5px;
+  font-size: 28px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.tile:hover:not(:disabled) {
+  background: #29292c;
+}
+
+.tile.filled {
+  border-color: #999;
+}
+
+/* SELECTED TILE */
+
+.tile.selected {
+  border: 3px solid #e7c64b;
+  box-shadow: 0 0 10px #e7c64b55;
+}
+
+/* WORD COLORS */
+
+.tile.correct,
+.key.correct {
+  background: #538d4e;
+  border-color: #538d4e;
+  color: white;
+}
+
+.tile.present,
+.key.present {
+  background: #b59f3b;
+  border-color: #b59f3b;
+  color: white;
+}
+
+.tile.absent,
+.key.absent {
+  background: #3a3a3c;
+  border-color: #3a3a3c;
+  color: white;
+}
+
+/* NOTIFICATION */
+
+.message-slot {
+  height: 45px;
+  display: flex;
+  align-items: center;
+}
+
+.toast {
+  background: white;
+  color: black;
+  padding: 10px 16px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* KEYBOARD */
+
+.keyboard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 15px;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.key {
+  flex: 1;
+  max-width: 43px;
+  height: 52px;
+  border: none;
+  border-radius: 5px;
+  background: #818384;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.key:hover:not(:disabled) {
+  filter: brightness(1.2);
+}
+
+.key:disabled {
+  cursor: default;
+}
+
+.key-wide {
+  max-width: 65px;
+  font-size: 10px;
+}
+
+.backspace {
+  font-size: 22px;
+}
+
+/* FOOTER AND BUTTONS */
+
+.mouse-tip {
+  color: #aaa;
+  font-size: 10px;
+  text-align: center;
+}
+
+.new-game-link {
+  background: #252527;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 6px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.new-game-link:hover {
+  background: #444;
+}
+
+footer {
+  padding: 15px;
+  font-size: 10px;
+  color: #777;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 420px) {
+  .tile {
+    font-size: 23px;
+  }
+
+  .key {
+    height: 46px;
+  }
+
+  .header h1 {
+    font-size: 24px;
+  }
+}
